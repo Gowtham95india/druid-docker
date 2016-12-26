@@ -4,7 +4,7 @@ FROM ubuntu:14.04
 # Set environment variables to fetch Druid // Autobulid
 
 ENV GITHUB_OWNER druid-io
-ENV DRUID_VERSION master
+ENV DRUID_VERSION 0.9.2
 
 # Druid env variable
 ENV DRUID_XMX           '-'
@@ -48,7 +48,7 @@ RUN wget -q --no-check-certificate --no-cookies -O - \
 
 # Custom configuration setup.
 
-COPY ../conf /opt/druid-$DRUID_VERSION/conf 
+COPY conf /var/lib/druid-$DRUID_VERSION/conf 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
