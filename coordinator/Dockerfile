@@ -48,7 +48,7 @@ RUN wget -q --no-check-certificate --no-cookies -O - \
 
 # Custom configuration setup.
 
-COPY conf /opt/druid-$DRUID_VERSION/conf 
+COPY ../conf /opt/druid-$DRUID_VERSION/conf 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
