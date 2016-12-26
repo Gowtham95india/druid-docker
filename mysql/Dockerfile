@@ -13,9 +13,7 @@ RUN apt-get install -y supervisor
 RUN apt-get install -y git
 
 # Druid system user
-RUN adduser --system --group --no-create-home druid \
-      && mkdir -p /var/lib/druid \
-      && chown druid:druid /var/lib/druid
+RUN adduser --system --group --no-create-home druid 
 
 WORKDIR /
 
@@ -35,5 +33,5 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # - 3306: MySQL
 # - 2181 2888 3888: ZooKeeper
 EXPOSE 3306
-
+WORKDIR /
 ENTRYPOINT export HOSTIP="$(resolveip -s $HOSTNAME)" && exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf

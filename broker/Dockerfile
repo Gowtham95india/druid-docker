@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y software-properties-common \
 
 # Adding a system User only for Druid
 
-RUN adduser --system --group --no-create-home druid \
+RUN adduser --system --group --no-create-home druid
 
 
 WORKDIR /tmp/druid
@@ -50,6 +50,6 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
 # Defining how to start Druid.
-
+WORKDIR /
 EXPOSE 8082
 ENTRYPOINT export HOSTIP="$(getent hosts $HOSTNAME | awk '{print $1}')" && exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
