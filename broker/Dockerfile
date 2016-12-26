@@ -4,7 +4,7 @@ FROM ubuntu:14.04
 # Set environment variables to fetch Druid // Autobulid
 
 ENV GITHUB_OWNER druid-io
-ENV DRUID_VERSION master
+ENV DRUID_VERSION 0.9.2
 
 # Druid env variable
 ENV DRUID_XMX           '-'

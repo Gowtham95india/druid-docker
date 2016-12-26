@@ -41,7 +41,7 @@ services:
 
   middlemanager:
     container_name: middlemanager
-    build: ./middlemanager
+    build: ./middleManager
     environment:
       - DRUID_XMX=1g 
       - DRUID_XMS=1g 
