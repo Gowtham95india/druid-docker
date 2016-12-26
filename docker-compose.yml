@@ -12,7 +12,7 @@ services:
 
   zookeeper:
     container_name: zookeeper
-    build: ./zookeerper
+    build: ./zookeeper
     environment:
       - ZOO_ID=1
       - ZOO_SERVERS=zookeeper
@@ -40,7 +40,7 @@ services:
       - coordinator
 
   middlemanager:
-    container_name = middlemanager
+    container_name: middlemanager
     build: ./middlemanager
     environment:
       - DRUID_XMX=1g 
