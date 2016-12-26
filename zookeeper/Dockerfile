@@ -29,6 +29,11 @@ RUN apt-get update && apt-get install -y software-properties-common \
       && rm -rf /var/cache/oracle-jdk8-installer 
 
 
+# Adding a system User only for Druid
+
+RUN adduser --system --group --no-create-home druid \
+
+
 WORKDIR /tmp/druid
 
 # Getting stable version of Zookeeper
