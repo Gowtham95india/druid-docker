@@ -46,6 +46,7 @@ RUN wget -q --no-check-certificate --no-cookies -O - \
 # Custom configuration setup.
 
 COPY conf /var/lib/druid-$DRUID_VERSION/conf 
+RUN java -classpath "/my/druid/lib/*" io.druid.cli.Main tools pull-deps -c io.druid.extensions:mysql-metadata-storage:$DRUID_VERSION
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
