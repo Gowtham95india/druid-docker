@@ -29,14 +29,6 @@ RUN apt-get update && apt-get install -y software-properties-common \
       && rm -rf /var/cache/oracle-jdk8-installer 
 
 
-
-# Adding a system User only for Druid
-
-RUN adduser --system --group --no-create-home druid \
-      && mkdir -p /var/lib/zookeeper \
-      && chown druid:druid /var/lib/zookeeper
-
-
 WORKDIR /tmp/druid
 
 # Getting stable version of Zookeeper
@@ -54,5 +46,4 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Defining how to start Druid.
 
 EXPOSE 2181 2888 3888
-WORKDIR /var/lib/druid
 ENTRYPOINT export HOSTIP="$(resolveip -s $HOSTNAME)" && exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
