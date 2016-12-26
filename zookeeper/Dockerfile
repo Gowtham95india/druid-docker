@@ -49,6 +49,6 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 
 # Defining how to start Druid.
-WORKDIR /
+WORKDIR $HOME
 EXPOSE 2181 2888 3888
 ENTRYPOINT export HOSTIP="$(getent hosts $HOSTNAME | awk '{print $1}')" && exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
