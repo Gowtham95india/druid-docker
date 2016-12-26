@@ -94,10 +94,6 @@ This step will donwload Ubuntu 14.04 images and will do all the necessary steps 
 docker logs broker
 ```
 
-
-Props to Mr. Doob and his [code editor](http://mrdoob.com/projects/code-editor/), from which
-the inspiration to this, and some handy implementation hints, came.
-
 <br>
 ### Futher recommended:
 <hr>
@@ -105,4 +101,3 @@ the inspiration to this, and some handy implementation hints, came.
 You can use swarm to run them in different hosts. You can read about [swarm here](https://docs.docker.com/swarm).
 
 *Don't run this in your machine as it runs 7 containers which freezes the system. I'm using 16Gb Ubuuntu 14.04 Machine to run and test this.*
-
