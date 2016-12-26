@@ -62,7 +62,7 @@ services:
       - historical
 
   broker:
-    cotainer_name: broker
+    container_name: broker
     build: ./broker
     environment:
       - DRUID_XMX=1g 
