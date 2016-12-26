@@ -33,5 +33,5 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # - 3306: MySQL
 # - 2181 2888 3888: ZooKeeper
 EXPOSE 3306
-WORKDIR $HOME
+WORKDIR ~/
 ENTRYPOINT export HOSTIP="$(resolveip -s $HOSTNAME)" && exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
