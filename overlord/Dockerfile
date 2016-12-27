@@ -39,8 +39,11 @@ WORKDIR /tmp/druid
 # Getting stable version of Druid
 
 RUN wget -q --no-check-certificate --no-cookies -O - \
-    http://static.druid.io/artifacts/releases/druid-$DRUID_VERSION-bin.tar.gz | tar -xzf - -C /var/lib/ \
-    && java -classpath "/var/lib/druid-$DRUID_VERSION/lib/*" io.druid.cli.Main tools pull-deps -c io.druid.extensions:mysql-metadata-storage:$DRUID_VERSION \
+    http://static.druid.io/artifacts/releases/druid-$DRUID_VERSION-bin.tar.gz | tar -xzf - -C /var/lib/ 
+    
+WORKDIR /var/lib/druid-$DRUID_VERSION
+  
+RUN java -classpath "/var/lib/druid-$DRUID_VERSION/lib/*" io.druid.cli.Main tools pull-deps -c io.druid.extensions:mysql-metadata-storage:$DRUID_VERSION \
     && ln -s /var/lib/druid-$DRUID_VERSION /var/lib/druid
 
 
